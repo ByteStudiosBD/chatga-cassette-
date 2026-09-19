@@ -1,0 +1,16 @@
+services:
+  chatga-cassette:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: chatga-cassette:latest
+    container_name: chatga-cassette
+    restart: unless-stopped
+    ports:
+      - "8087:80"
+    networks:
+      - proxy
+
+networks:
+  proxy:
+    external: true
